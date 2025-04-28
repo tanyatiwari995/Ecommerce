@@ -2,9 +2,12 @@ import { catchAsyncError } from "../../utils/catchAsyncError.js";
 import { AppError } from "../../utils/AppError.js";
 import { cartModel } from "../../../Database/models/cart.model.js";
 import { productModel } from "../../../Database/models/product.model.js";
-import { orderModel } from "../../../Database/models/order.model.js";
+import dotenv from "dotenv";
+
 import Stripe from "stripe";
 import { userModel } from "../../../Database/models/user.model.js";
+
+dotenv.config();
 
 // Initialize Stripe with secret key
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);

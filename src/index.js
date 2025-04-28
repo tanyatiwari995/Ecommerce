@@ -1,10 +1,10 @@
 import express from "express";
-import { dbConnection } from "./Database/dbConnection.js";
-import { bootstrap } from "./src/bootstrap.js";
+import  dbConnection  from "../Database/dbConnection.js";
+import { bootstrap } from "../src/bootstrap.js";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import cors from 'cors'
-import { createOnlineOrder } from "./src/modules/order/order.controller.js";
+import { createOnlineOrder } from "../src/modules/order/order.controller.js";
 
 dotenv.config();
 const app = express();
@@ -19,5 +19,5 @@ app.use(express.static("uploads"));
 
 
 bootstrap(app);
-dbConnection();
+dbConnection(process.env.MONGODB_URI);
 app.listen(process.env.PORT || port, () => console.log(`Example app listening on port ${port}!`));

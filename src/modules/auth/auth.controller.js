@@ -52,7 +52,7 @@ const protectedRoutes = catchAsyncError(async (req, res, next) => {
     if (passwordChangedAt > decoded.iat)
       return next(new AppError("Invalid token", 401));
   }
-  // console.log(decoded.iat, "-------------->",passwordChangedAt);
+  // console.log(decoded.iat, "-",passwordChangedAt);
 
   req.user = user;
   next();
